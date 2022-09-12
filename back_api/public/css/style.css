@@ -35,6 +35,11 @@
         
         .Navigation li {
             list-style: none;
+            transition: 0.7s ease;
+        }
+        
+        .Navigation li:hover {
+            color: orange;
         }
         
         .hamburger {
@@ -48,4 +53,19 @@
             height: 3px;
             margin: 5px auto;
             background-color: whitesmoke;
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(8px) rotate(-45deg);
+            }
         }
