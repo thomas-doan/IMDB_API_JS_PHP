@@ -1,3 +1,11 @@
+<?php
+
+require_once(__DIR__ . '/Controllers/Securite.php');
+
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +14,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMDB API</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../../front_api/public/css/index.css">
+    <script type="text/javascript" src="../../front_api/public/js/index.js"></script>
 
 </head>
 
@@ -18,14 +27,16 @@
             <li>Accueil</li>
             <li>Top 10</li>
             <li>Nouveauté</li>
-            <li>Wishlist</li>
 
+            <?php if (!Securite::estConnecte()) : ?>
+                <li>Wishlist</li>
+            <?php endif; ?>
         </ul>
         <div class="hamburger">
 
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+            <span></span>
+            <span></span>
+            <span></span>
 
         </div>
     </nav>
